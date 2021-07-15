@@ -7,8 +7,9 @@ X provides the basic framework for a GUI environment: drawing and moving windows
 - As such, the visual styling of X-based environments varies greatly; different programs may present radically different interfaces.
 
 ## Installing and Running Windows X Server
-There are many X Servers running on Windows, but VcXsrv is easy to use.\
+There are many X Servers running on Windows, but VcXsrv is easy to use. 
 In the old days, there was only Cygwin and it was difficult to use.
+Personally, I would recommend using either VcXsrv or Xming.
 
 1. VcXsrv Windows X Server: [Download here](https://sourceforge.net/projects/vcxsrv/)
 
