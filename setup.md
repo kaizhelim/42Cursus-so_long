@@ -46,14 +46,25 @@ If you do not check the option now, you will need to setup "External permissions
 <img src="https://user-images.githubusercontent.com/76621210/125740633-483bd3d8-002d-4c80-a8bd-74790c66b399.png" height="300"/>
 
 ## WSL and VcXsrv Additional Configuration (Optional)
-By default, every time you launch the OS, you need to click the VcXsrv icon to launch the program. When you start VcXsrv, 
-the wizard will start up and you will need to make the settings every time. It is not difficult just to pochi pochi, but it is troublesome every time. 
+By default, every time you launch the OS, you need to click the VcXsrv icon to launch the program. 
+When you start VcXsrv, the wizard will start up and you will need to make the settings every time. 
+It is not difficult but it might be troublesome to you every time. 
 If you frequently use the x window, it is useful to include a setting that makes VcXsrv start automatically when you start the OS.
 
 Guide: [Linux GUI application on windows: WSL2 and VcXsrv configuration](https://blog.nimamoh.net/wsl2-and-vcxsrv/)
 
-## Setup Display Environment Variables on WSL
+## Install Required Packages
 - sudo apt-get update
 - sudo apt-get install x11-apps -y
 - sudo apt-get install gcc make libbsd-dev libxext-dev xorg
-- echo 'export DISPLAY=$(grep -oP "(?<=nameserver ).+" /etc/resolv.conf):0' >> ~/.bashrc
+
+## Setup Display Environment Variables on WSL and Export Display for XWindows  
+- For WSL1: export DISPLAY=0:0
+- For WSL2: export DISPLAY=$(grep -m 1 nameserver /etc/resolv.conf | awk '{print $2}'):0
+<!-- echo 'export DISPLAY=$(grep -oP "(?<=nameserver ).+" /etc/resolv.conf):0' >> ~/.bashrc -->
+<!-- source ~/.bashrc -->
+
+## Testing 
+Run the following command in the WSL terminal. An appication should pop out in a separate window.
+- xeyes
+- xclock
